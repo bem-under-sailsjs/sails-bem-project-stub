@@ -1,0 +1,34 @@
+block('controller')
+    .elem('product')
+    .mod('action', 'index')
+    .def()(function() {
+
+        // For dev output
+        var products = this.ctx.data.products && (function() {
+                return this.ctx.data.products.map(function(currentValue) {
+                    return {
+                        block: 'product',
+                        content: [
+                            {
+                                elem: 'title',
+                                content: currentValue.title
+                            },
+                            {
+                                elem: 'image',
+                                tag: 'img',
+                                attrs: {src: currentValue.image}
+                            },
+                            {
+                                elem: 'price',
+                                content: currentValue.price
+                            }
+                        ]
+                    };
+                });
+            }.bind(this)());
+        
+        return applyCtx({
+            content: products
+        });
+    }
+);

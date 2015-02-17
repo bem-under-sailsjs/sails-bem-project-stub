@@ -1,0 +1,14 @@
+{
+    "author": "",
+    "name": "sails-bem-project-stub",
+    "email": "",
+    "version": "0.0.0",
+    "ignore": [
+        "views/.enb/tmp",
+        "node_modules",
+        "views/libs"
+    ],
+    "dependencies": {
+        "bem-components": "^2.0.0"
+    }
+}

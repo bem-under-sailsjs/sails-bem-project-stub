@@ -1,0 +1,17 @@
+match(this.ctx.data)
+    .def()(function() {
+    return applyCtx({
+        block: 'page',
+        head: [{elem: 'css', url: '/views/desktop.bundles/merged/_merged.css'}],
+        title: this.ctx.data.title,
+        content: [
+            {
+                block: 'controller',
+                elem: this.ctx.controller,
+                mods: {action: this.ctx.action},
+                data: this.ctx.data
+            },
+            {elem: 'js', url: '/views/desktop.bundles/merged/_merged.js'}
+        ]
+    });
+});

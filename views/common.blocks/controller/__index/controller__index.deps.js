@@ -1,0 +1,8 @@
+({
+
+    shouldDeps: [
+        {
+            mods: {action: ['index']}
+        }
+    ]
+});
