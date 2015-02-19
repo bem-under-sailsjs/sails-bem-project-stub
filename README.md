@@ -43,5 +43,6 @@ nodemon app.js
 
 ### Addons
 
+* [sails-hook-bem-render](https://www.npmjs.com/package/sails-hook-bem-render) [BEM](https://en.bem.info) template engine render
 * [sails-hook-dev](https://www.npmjs.com/package/sails-hook-dev) You can see some important info about your app: http://localhost:1337/dev/
-* [sails-hook-seed](https://www.npmjs.com/package/sails-hook-seed) This hook allow you to save and get mock-data from database
+* [sails-hook-seed](https://www.npmjs.com/package/sails-hook-seed) This hook allows you to save and get mock-data from database
