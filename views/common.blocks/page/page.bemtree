@@ -1,15 +1,17 @@
 match(this.ctx.data)
     .def()(function() {
+    var data = this.ctx.data;
+
     return applyCtx({
         block: 'page',
         head: [{elem: 'css', url: '/views/desktop.bundles/merged/_merged.css'}],
-        title: this.ctx.data.title,
+        title: data.title,
         content: [
             {
                 block: 'controller',
-                elem: this.ctx.controller,
-                mods: {action: this.ctx.action},
-                data: this.ctx.data
+                elem: data.options.controller,
+                mods: {action: data.options.action},
+                data: data
             },
             {elem: 'js', url: '/views/desktop.bundles/merged/_merged.js'}
         ]

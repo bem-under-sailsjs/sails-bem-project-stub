@@ -3,9 +3,11 @@ block('controller')
     .mod('action', 'index')
     .def()(function() {
 
+        var data = this.ctx.data;
+
         // For dev output
-        var products = this.ctx.data.products && (function() {
-                return this.ctx.data.products.map(function(currentValue) {
+        var products = data.products && (function() {
+                return data.products.map(function(currentValue) {
                     return {
                         block: 'product',
                         content: [
@@ -26,9 +28,14 @@ block('controller')
                     };
                 });
             }.bind(this)());
-        
-        return applyCtx({
-            content: products
-        });
+
+        return applyCtx([
+            {
+                content: JSON.stringify(data.options)
+            }/*,
+            {
+                content: products
+            }*/
+        ]);
     }
 );

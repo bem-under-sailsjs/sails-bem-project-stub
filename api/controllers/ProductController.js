@@ -14,11 +14,7 @@ module.exports = {
         Product.find(function(err, products) {
 
             // TODO: pass controller/action another way
-            res.render({
-                data: {products: products},
-                controller: 'product',
-                action: 'index'
-            });
+            res.render({data: {products: products, options: res.req.options}});
         });
     },
 
@@ -27,11 +23,7 @@ module.exports = {
      */
     show: function(req, res) {
         Product.findOne({id: req.param('id')}, function(err, product) {
-            res.render({
-                data: product,
-                controller: 'product',
-                action: 'show'
-            });
+            res.render({data: {product: product, options: res.req.options}});
         });
     },
 
@@ -69,11 +61,7 @@ module.exports = {
      */
     edit: function(req, res) {
         Product.findOne({id: req.param('id')}, function(err, product) {
-            res.render({
-                data: {product: product},
-                controller: 'product',
-                action: 'edit'
-            });
+            res.render({data: {product: product, options: res.req.options}});
         });
     },
 
@@ -81,11 +69,7 @@ module.exports = {
      * `ProductController.new()`
      */
     'new': function(req, res) {
-        res.render({
-            data: {product: {}},
-            controller: 'product',
-            action: 'new'
-        });
+        res.render({data: {product: {}, options: res.req.options}});
     },
 
     /**

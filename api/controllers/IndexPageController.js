@@ -12,9 +12,11 @@ module.exports = {
      */
     index: function(req, res) {
         res.render({
-            data: {title: 'Welcome to indexPage', indexPage: 'indexPage content'},
-            controller: 'index',
-            action: 'index'
+            data: {
+                title: 'Welcome to indexPage',
+                indexPage: 'indexPage content',
+                options: res.req.options
+            }
         });
     }
 };

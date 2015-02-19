@@ -48,11 +48,7 @@ var AuthController = {
 
         passport.retpath = req.query.retpath;
 
-        // Render the `auth/login.ext` view
-        res.view({
-            providers: providers,
-            errors: req.flash('error')
-        });
+        res.render({data: {providers: providers, errors: req.flash('error'), options: res.req.options}});
     },
 
     /**
@@ -93,9 +89,7 @@ var AuthController = {
      * @param {Object} res
      */
     register: function(req, res) {
-        res.view({
-            errors: req.flash('error')
-        });
+        res.render({data: {errors: req.flash('error'), options: res.req.options}});
     },
 
     /**
