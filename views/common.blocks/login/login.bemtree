@@ -1,0 +1,21 @@
+block('login')
+    .def()(function() {
+        var data = this.ctx.data;
+
+        var providers = Object.keys(data.providers).map(function(provider) {
+            provider = data.providers[provider];
+
+            return {
+                block: 'link',
+                mix: [{block: 'login', elem: 'provider'}],
+                url: '/auth/' + provider.slug,
+                content: provider.name
+            };
+        });
+
+        return applyCtx({
+            block: 'login',
+            content: providers
+        });
+    }
+);

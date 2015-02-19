@@ -2,7 +2,7 @@
 
     shouldDeps: [
         {
-            elems: ['index', 'product']
+            elems: ['index', 'product', 'auth']
         },
         {
             block: 'content'
