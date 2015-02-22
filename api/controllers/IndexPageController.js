@@ -14,8 +14,7 @@ module.exports = {
         res.render({
             data: {
                 title: 'Welcome to indexPage',
-                indexPage: 'indexPage content',
-                options: res.req.options
+                indexPage: 'indexPage content'
             }
         });
     }

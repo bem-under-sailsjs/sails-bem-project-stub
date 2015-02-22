@@ -14,7 +14,7 @@ module.exports = {
         Product.find(function(err, products) {
 
             // TODO: pass controller/action another way
-            res.render({data: {products: products, options: res.req.options}});
+            res.render({data: {products: products}});
         });
     },
 
@@ -23,7 +23,7 @@ module.exports = {
      */
     show: function(req, res) {
         Product.findOne({id: req.param('id')}, function(err, product) {
-            res.render({data: {product: product, options: res.req.options}});
+            res.render({data: {product: product}});
         });
     },
 
@@ -61,7 +61,7 @@ module.exports = {
      */
     edit: function(req, res) {
         Product.findOne({id: req.param('id')}, function(err, product) {
-            res.render({data: {product: product, options: res.req.options}});
+            res.render({data: {product: product}});
         });
     },
 
@@ -69,7 +69,7 @@ module.exports = {
      * `ProductController.new()`
      */
     'new': function(req, res) {
-        res.render({data: {product: {}, options: res.req.options}});
+        res.render({data: {product: {}}});
     },
 
     /**

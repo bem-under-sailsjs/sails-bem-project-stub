@@ -8,9 +8,10 @@ match(this.ctx.data)
         title: data.title,
         content: [
             {
+            {
                 block: 'controller',
-                elem: data.options.controller,
-                mods: {action: data.options.action},
+                elem: data.req.options.controller,
+                mods: {action: data.req.options.action},
                 data: data
             },
             {elem: 'js', url: '/views/desktop.bundles/merged/_merged.js'}
