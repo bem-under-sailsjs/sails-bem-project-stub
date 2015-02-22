@@ -6,16 +6,66 @@ block('login')
             provider = data.providers[provider];
 
             return {
-                block: 'link',
-                mix: [{block: 'login', elem: 'provider'}],
-                url: '/auth/' + provider.slug,
-                content: provider.name
+                block: 'login',
+                elem: 'provider',
+                content: {
+                    block: 'link',
+                    url: '/auth/' + provider.slug,
+                    content: provider.name
+                }
             };
         });
 
         return applyCtx({
             block: 'login',
-            content: providers
+            content: [
+                {
+                    elem: 'local',
+                    content: [
+                        {
+                            elem: 'header',
+                            content: 'login'
+                        },
+                        {
+                            block: 'form',
+                            action: '/auth/local/',
+                            content: [
+                                {
+                                    block: 'input',
+                                    mods: {theme: 'islands', size: 'm'},
+                                    name: 'email',
+                                    placeholder: 'email'
+                                },
+                                {
+                                    block: 'input',
+                                    mods: {theme: 'islands', size: 'm'},
+                                    type: 'password',
+                                    name: 'password',
+                                    placeholder: 'password'
+                                },
+                                {
+                                    block: 'button',
+                                    mods: {theme: 'islands', size: 'm'},
+                                    content: 'login'
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    elem: 'other',
+                    content: [
+                        {
+                            elem: 'header',
+                            content: 'login with:'
+                        },
+                        {
+                            elem: 'providers',
+                            content: providers
+                        }
+                    ]
+                }
+            ]
         });
     }
 );
