@@ -46,7 +46,7 @@ block('login')
                                 {
                                     block: 'button',
                                     mods: {theme: 'islands', size: 'm'},
-                                    content: 'login'
+                                    text: 'login'
                                 }
                             ]
                         }
