@@ -8,6 +8,9 @@ match(this.ctx.data)
         title: data.title,
         content: [
             {
+                block: 'head',
+                data: data
+            },
             {
                 block: 'controller',
                 elem: data.req.options.controller,

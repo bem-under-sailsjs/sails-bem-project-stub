@@ -1,0 +1,19 @@
+block('head')(
+    def()(function() {
+        return applyCtx([
+            {
+                block: 'head',
+                content: [
+                    {
+                        block: 'logo',
+                        content: 'site logo'
+                    },
+                    {
+                        block: 'user',
+                        data: this.ctx.data
+                    }
+                ]
+            }
+        ]);
+    })
+);
