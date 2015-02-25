@@ -1,0 +1,36 @@
+block('user')(
+    def()(function() {
+        var user = this.ctx.data.req.session.User || {},
+            content = [];
+
+        if (user.email) {
+            content.push({
+                    elem: 'email',
+                    content: user.email
+                },
+                {
+                    elem: 'logout',
+                    content: {
+                        block: 'link',
+                        url: '/logout/',
+                        content: 'logout'
+                    }
+                });
+        } else {
+            content.push({
+                elem: 'logout',
+                content: {
+                    block: 'link',
+                    url: '/login/',
+                    content: 'login'
+                }
+            });
+        }
+
+        return applyCtx({
+            block: 'user',
+            content: content
+        });
+
+    })
+);
