@@ -7,6 +7,7 @@ module.exports = {
         username: {type: 'string', unique: true},
         displayName: {type: 'string'},
         profileUrl: {type: 'string'},
+        photos: {type: 'array'},
         gender: {type: 'string'},
         isOnline: {type: 'boolean'},
         isAdmin: {type: 'boolean', defaultsTo: false},
