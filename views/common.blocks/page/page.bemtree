@@ -12,10 +12,38 @@ match(this.ctx.data)
                 data: data
             },
             {
+                block: 'menu',
+                mods: {theme: 'islands', size: 'm'},
+                content: [
+                    {
+                        block: 'menu-item',
+                        mods: {type: 'link'},
+                        content: {
+                            block: 'link',
+                            url: '/',
+                            content: 'Main'
+                        }
+                    },
+                    {
+                        block: 'menu-item',
+                        mods: {type: 'link'},
+                        content: {
+                            block: 'link',
+                            url: '/products/',
+                            content: 'Products'
+                        }
+                    }
+                ]
+            },
+            {
                 block: 'controller',
                 elem: data.req.options.controller,
                 mods: {action: data.req.options.action},
                 data: data
+            },
+            {
+                block: 'footer',
+                content: 'sails bem project stub 2015'
             },
             {elem: 'js', url: '/views/desktop.bundles/merged/_merged.js'}
         ]
