@@ -29,13 +29,6 @@ block('controller')
                 });
             }.bind(this)());
 
-        return applyCtx([
-            {
-                content: JSON.stringify(data.options)
-            }/*,
-            {
-                content: products
-            }*/
-        ]);
+        return applyCtx(products);
     }
 );
