@@ -19,7 +19,8 @@ block('login')
         return applyCtx({
             block: 'login',
             content: [
-                {
+                // Enable on demand
+/*                {
                     elem: 'local',
                     content: [
                         {
@@ -28,30 +29,31 @@ block('login')
                         },
                         {
                             block: 'form',
-                            action: '/auth/local/',
+                            action: '/auth/local',
+                            method: 'post',
+                            data: this.ctx.data,
                             content: [
                                 {
                                     block: 'input',
                                     mods: {theme: 'islands', size: 'm'},
-                                    name: 'email',
-                                    placeholder: 'email'
+                                    name: 'identifier',
+                                    placeholder: 'username or email'
                                 },
                                 {
                                     block: 'input',
-                                    mods: {theme: 'islands', size: 'm'},
-                                    type: 'password',
+                                    mods: {theme: 'islands', size: 'm', type: 'password'},
                                     name: 'password',
                                     placeholder: 'password'
                                 },
                                 {
                                     block: 'button',
-                                    mods: {theme: 'islands', size: 'm'},
+                                    mods: {theme: 'islands', size: 'm', type: 'submit'},
                                     text: 'login'
                                 }
                             ]
                         }
                     ]
-                },
+                },*/
                 {
                     elem: 'other',
                     content: [

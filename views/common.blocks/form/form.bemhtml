@@ -3,8 +3,27 @@ block('form')(
     attrs()(
         function() {
             return {
-                action: this.ctx.action
+                action: this.ctx.action,
+                method: this.ctx.method
             };
         }
-    )
+    ),
+    content()(function() {
+
+        var session = this.ctx.data.req.session,
+            messages = session.flash.form;
+
+
+        return [
+            session.csrfSecret && ({
+                tag: 'input',
+                attrs: {
+                    name: '_csrf',
+                    value: session.csrfSecret,
+                    type: 'hidden'
+                }
+            }),
+            applyNext()
+        ];
+    })
 );
