@@ -20,7 +20,14 @@ module.exports = {
         return obj;
     },
 
+    beforeValidate: function(values, next) {
+        // don't save _csrf token in database
+        if(values._csrf) delete values._csrf;
+        next();
+    },
+
     /**
+     * TODO: is it necessary?
      * Create stub to product
      */
     'new': function() {
