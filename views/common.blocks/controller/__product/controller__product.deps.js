@@ -1,7 +1,7 @@
 ({
     shouldDeps: [
         {
-            mods: {action: ['index']}
+            mods: {action: ['index', 'edit', 'show']}
         },
         {
             block: 'product'

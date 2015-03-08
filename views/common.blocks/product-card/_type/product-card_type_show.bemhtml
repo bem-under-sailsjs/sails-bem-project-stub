@@ -1,0 +1,29 @@
+block('product-card').mod('type', 'show')(
+
+    def()(function() {
+        var product = this.ctx.data.product;
+
+        applyCtx({
+            block: 'product-card',
+            content: [
+                {
+                    elem: 'title',
+                    content: product.title
+                },
+                {
+                    elem: 'image',
+                    content: {
+                        block: 'image',
+                        url:  product.image,
+                        title: product.title,
+                        alt: product.title
+                    }
+                },
+                {
+                    elem: 'price',
+                    content: product.price
+                }
+            ]
+        });
+    })
+);

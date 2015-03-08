@@ -1,0 +1,53 @@
+block('product-card').mod('type', 'edit')(
+
+    def()(function() {
+        var product = this.ctx.data.product;
+
+        applyCtx({
+            block: 'form',
+            enctype: 'multipart/form-data',
+            action: '/product/' + product.id + '/update/',
+            method: 'post',
+            data: this.ctx.data,
+            content: [
+                {
+                    block: 'product-card',
+                    content: [
+                        {
+                            elem: 'title',
+                            content: {
+                                block: 'input',
+                                mods: {theme: 'islands', size: 'm'},
+                                name: 'content',
+                                val: product.title
+                            }
+                        },
+                        {
+                            elem: 'image',
+                            content: {
+                                block: 'input',
+                                mods: {theme: 'islands', size: 'm'},
+                                name: 'content',
+                                val: product.image
+                            }
+                        },
+                        {
+                            elem: 'price',
+                            content: {
+                                block: 'input',
+                                mods: {theme: 'islands', size: 'm'},
+                                name: 'content',
+                                val: product.price
+                            }
+                        }
+                    ]
+                },
+                {
+                    block: 'button',
+                    mods: {theme: 'islands', size: 'm', type: 'submit'},
+                    text: 'Save'
+                }
+            ]
+        });
+    })
+);

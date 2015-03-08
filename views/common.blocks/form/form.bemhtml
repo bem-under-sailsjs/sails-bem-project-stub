@@ -9,20 +9,19 @@ block('form')(
         }
     ),
     content()(function() {
-
-        var session = this.ctx.data.req.session,
-            messages = session.flash.form;
-
+        // TODO: rewrite
+        var req = this.ctx.data.req,
+            res = req.res;
 
         return [
-            session.csrfSecret && ({
+            {
                 tag: 'input',
                 attrs: {
                     name: '_csrf',
-                    value: session.csrfSecret,
+                    value: res.locals._csrf,
                     type: 'hidden'
                 }
-            }),
+            },
             applyNext()
         ];
     })

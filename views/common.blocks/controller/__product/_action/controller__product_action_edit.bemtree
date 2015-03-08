@@ -1,0 +1,10 @@
+block('controller')
+    .elem('product')
+    .mod('action', 'edit')
+    .def()(function() {
+        return applyCtx({
+            block: 'product-card',
+            mods: {type: 'edit'},
+            data: this.ctx.data
+        });
+});

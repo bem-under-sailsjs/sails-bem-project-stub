@@ -23,6 +23,14 @@ block('controller')
                             {
                                 elem: 'price',
                                 content: currentValue.price
+                            },
+                            {
+                                elem: 'controls',
+                                content: {
+                                    block: 'link',
+                                    url: '/product/' + currentValue.id + '/edit/',
+                                    content: 'Edit'
+                                }
                             }
                         ]
                     };
