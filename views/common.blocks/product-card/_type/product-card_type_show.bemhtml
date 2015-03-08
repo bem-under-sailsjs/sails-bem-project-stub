@@ -10,7 +10,7 @@ block('product-card').mod('type', 'show')(
                     elem: 'title',
                     content: product.title
                 },
-                {
+                product.image && ({
                     elem: 'image',
                     content: {
                         block: 'image',
@@ -18,7 +18,7 @@ block('product-card').mod('type', 'show')(
                         title: product.title,
                         alt: product.title
                     }
-                },
+                }),
                 {
                     elem: 'price',
                     content: product.price

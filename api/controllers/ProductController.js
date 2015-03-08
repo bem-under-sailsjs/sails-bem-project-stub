@@ -39,10 +39,7 @@ module.exports = {
                 if (err) return next(err);
 
                 var productData = req.params.all();
-
-                if (file && file[0] && file[0].fd) {
-                    productData.image = file[0].fd.split('/').pop();
-                }
+                productData.image = getImageName(file);
 
                 // TODO: rewrite
                 Product.create(productData, function(err, product) {
@@ -84,10 +81,9 @@ module.exports = {
                 if (err) return next(err);
 
                 var productData = req.params.all();
+                productData.image = getImageName(file);
 
-                if (file && file[0] && file[0].fd) {
-                    productData.image = file[0].fd.split('/').pop();
-                }
+                console.log("productData.image: ", productData.image);
 
                 Product.update(req.param('id'), productData, function(err, product) {
                     if (err) res.redirect('/product/' + req.param('id') + '/edit');
@@ -115,3 +111,17 @@ module.exports = {
     }
 };
 
+/**
+ * Get file name from `file` object
+ *
+ * @param {Object} file
+ * @return {String} file name
+ */
+function getImageName(file) {
+
+    console.log('file: ', file);
+
+    if (file && file[0] && file[0].fd) {
+        return file[0].fd.split('/').pop();
+    }
+}

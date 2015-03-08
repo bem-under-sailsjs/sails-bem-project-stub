@@ -1,5 +1,4 @@
 block('product-card').mod('type', 'edit')(
-
     def()(function() {
         var product = this.ctx.data.product;
 
@@ -24,12 +23,21 @@ block('product-card').mod('type', 'edit')(
                         },
                         {
                             elem: 'image',
-                            content: {
-                                block: 'input',
-                                mods: {theme: 'islands', size: 'm'},
-                                name: 'image',
-                                val: product.image
-                            }
+                            content: [
+                                product.image && ({
+                                    block: 'image',
+                                    url:  product.image,
+                                    title: product.title,
+                                    alt: product.title
+                                }),
+                                {
+                                    block: 'attach',
+                                    mods: {theme: 'islands', size: 'm'},
+                                    button: 'Choose file',
+                                    noFileText: 'No file chosen',
+                                    name: 'image'
+                                }
+                            ]
                         },
                         {
                             elem: 'price',

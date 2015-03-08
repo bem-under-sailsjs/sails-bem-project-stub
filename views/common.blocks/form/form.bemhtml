@@ -4,7 +4,8 @@ block('form')(
         function() {
             return {
                 action: this.ctx.action,
-                method: this.ctx.method
+                method: this.ctx.method,
+                enctype: this.ctx.enctype
             };
         }
     ),

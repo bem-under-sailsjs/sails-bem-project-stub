@@ -17,8 +17,13 @@ block('controller')
                             },
                             {
                                 elem: 'image',
-                                tag: 'img',
-                                attrs: {src: currentValue.image}
+                                content: currentValue.image && ({
+                                    block: 'image',
+                                    width: '300px',
+                                    url:  currentValue.image,
+                                    title: currentValue.title,
+                                    alt: currentValue.title
+                                })
                             },
                             {
                                 elem: 'price',
