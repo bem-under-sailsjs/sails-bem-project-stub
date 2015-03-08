@@ -18,7 +18,7 @@ block('product-card').mod('type', 'edit')(
                             content: {
                                 block: 'input',
                                 mods: {theme: 'islands', size: 'm'},
-                                name: 'content',
+                                name: 'title',
                                 val: product.title
                             }
                         },
@@ -27,7 +27,7 @@ block('product-card').mod('type', 'edit')(
                             content: {
                                 block: 'input',
                                 mods: {theme: 'islands', size: 'm'},
-                                name: 'content',
+                                name: 'image',
                                 val: product.image
                             }
                         },
@@ -36,7 +36,7 @@ block('product-card').mod('type', 'edit')(
                             content: {
                                 block: 'input',
                                 mods: {theme: 'islands', size: 'm'},
-                                name: 'content',
+                                name: 'price',
                                 val: product.price
                             }
                         }
