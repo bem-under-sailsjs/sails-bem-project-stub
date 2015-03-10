@@ -1,9 +1,9 @@
 block('controller')
-    .elem('index')
+    .elem('indexpage')
     .mod('action', 'index')
     .def()(function() {
         return applyCtx({
-            content: JSON.stringify(this.ctx.data)
+            content: this.ctx.data.indexPage
         });
     }
 );
