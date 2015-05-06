@@ -32,3 +32,5 @@ views/*bundles*/merged/
 views/*.bundles/*/*.*
 views/*.bundles/*/*.*.*
 !views/*bundles*/*/*.bemdecl.js
+views/static/js/_merged.js
+views/static/css/_merged.css

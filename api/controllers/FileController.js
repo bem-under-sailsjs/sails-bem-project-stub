@@ -37,11 +37,11 @@ module.exports = {
         var filePathWithSize,
 
         // Get required image size
-            height = req.query.h || null,
-            width = req.query.w || null,
+        height = req.query.h || null,
+        width = req.query.w || null,
 
         // h_0000_w_0000_
-            sizeNamePart = (height ? ('h_' + height + '_') : '') + (width ? 'w_' + width + '_' : '');
+        sizeNamePart = (height ? ('h_' + height + '_') : '') + (width ? 'w_' + width + '_' : '');
 
         filePathWithSize = path.resolve(uploadDir, sizeNamePart + req.param('id'));
 
@@ -51,24 +51,30 @@ module.exports = {
                 .resize(width, height)
                 .write(filePathWithSize, function(err) {
                     if (err) next(err);
-                    var readStream = fs.createReadStream(filePathWithSize);
-                    readStream.pipe(res);
+
+                    res.sendfile(filePathWithSize);
                 });
         } else {
-            var readStream = fs.createReadStream(filePathWithSize);
-            readStream.pipe(res);
+            res.sendfile(filePathWithSize);
         }
     },
 
     getStatic: function(req, res, next) {
         var file = req.param('file');
+        var directory = req.param('directory');
 
         // TODO: fix this:
         if (file === 'undefined') return next();
 
-        var filePath = path.resolve(__dirname, sails.config.fileUpload.staticDir, file);
-        var readStream = fs.createReadStream(filePath);
+        var filePath = path.resolve(__dirname, sails.config.fileUpload.staticDir, directory, file);
 
-        readStream.pipe(res);
+        if (fs.existsSync(filePath)) {
+            res.sendfile(filePath);
+
+        } else {
+            console.log("File ", filePath,  " is not exist.");
+            next();
+        }
+
     }
 };

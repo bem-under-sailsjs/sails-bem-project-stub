@@ -1,7 +1,7 @@
 {
     "author": "",
     "name": "sails-bem-project-stub",
-    "email": "",
+    "email": "alexbaumgertner@yandex.ru",
     "version": "0.0.0",
     "ignore": [
         "views/.enb/tmp",

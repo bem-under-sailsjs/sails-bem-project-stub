@@ -4,7 +4,7 @@ match(this.ctx.data)
 
     return applyCtx({
         block: 'page',
-        head: [{elem: 'css', url: '/views/desktop.bundles/merged/_merged.css'}],
+        head: [{elem: 'css', url: '/static/css/_merged.css'}],
         title: data.title,
         content: [
             {
@@ -45,7 +45,7 @@ match(this.ctx.data)
                 block: 'footer',
                 content: 'sails bem project stub 2015'
             },
-            {elem: 'js', url: '/views/desktop.bundles/merged/_merged.js'}
+            {elem: 'js', url: '/static/js/_merged.js'}
         ]
     });
 });

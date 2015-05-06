@@ -1,10 +1,10 @@
 {
   "name": "sails-bem-project-stub",
-  "author": "",
-  "license": "",
+  "author": "alexbaumgertner@yandex.ru",
+  "license": "MIT",
   "private": true,
   "version": "0.0.0",
-  "description": "a Sails application",
+  "description": "a typical Sails application",
   "keywords": [],
   "dependencies": {
     "bcryptjs": "^2.1.0",
@@ -18,7 +18,7 @@
     "sails": "~0.11.0",
     "sails-disk": "~0.10.0",
     "sails-generate-auth": "^0.2.0",
-    "sails-hook-bem-render": "0.0.4",
+    "sails-hook-bem-render": "^1.0.1",
     "sails-hook-dev": "^0.2.2",
     "sails-hook-seed": "^0.1.1",
     "sails-mongo": "^0.10.4",
@@ -27,9 +27,6 @@
     "ym": "^0.1.0"
   },
   "devDependencies": {
-    "bem": "^0.9.0",
-    "borschik": "^1.3.0",
-    "borschik-tech-cleancss": "^1.0.0",
     "bower": "^1.3.9",
     "ejs": "~0.8.4",
     "enb": "^0.13.7",
@@ -45,8 +42,13 @@
   "scripts": {
     "start": "node app.js",
     "debug": "node debug app.js",
-    "deps": "bower-npm-install --non-interactive",
-    "views-compile": "enb make -d views"
+    "init": "npm run deps && npm run make-views",
+    "deps": "npm i && bower i",
+    "make-views": "npm run views-compile && npm run copy-views",
+    "views-compile": "node_modules/.bin/enb make -d views --no-cache",
+    "copy-views": "npm run copy-css && npm run copy-js",
+    "copy-css": "cp views/desktop.bundles/merged/_merged.css views/static/css/",
+    "copy-js": "cp views/desktop.bundles/merged/_merged.js views/static/js/"
   },
   "main": "app.js",
   "repository": {
