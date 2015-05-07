@@ -13,7 +13,15 @@ module.exports = {
     index: function(req, res) {
         Product.find(function(err, products) {
 
-            // TODO: pass controller/action another way
+            // TODO: demo
+            if (products.length === 0) {
+                products = [{
+                    title: 'title',
+                    image: 'image',
+                    price: 'price'
+                }]
+            }
+
             res.render({data: {products: products}});
         });
     },
