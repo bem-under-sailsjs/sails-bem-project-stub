@@ -1,4 +1,5 @@
 # sails-bem-project-stub
+[![Build Status](https://travis-ci.org/alexbaumgertner/sails-bem-project-stub.svg)](https://travis-ci.org/alexbaumgertner/sails-bem-project-stub)
 
 a stub [Sails](http://sailsjs.org) application with [BEM](http://bem.info) template render system.
 
@@ -46,3 +47,4 @@ nodemon app.js
 * [sails-hook-bem-render](https://www.npmjs.com/package/sails-hook-bem-render) [BEM](https://en.bem.info) template engine render
 * [sails-hook-dev](https://www.npmjs.com/package/sails-hook-dev) You can see some important info about your app: http://localhost:1337/dev/
 * [sails-hook-seed](https://www.npmjs.com/package/sails-hook-seed) This hook allows you to save and get mock-data from database
+* [sails-test-helper](https://github.com/zand3rs/sails-test-helper) Test helper suite for Sails.js using Mocha test framework

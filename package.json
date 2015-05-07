@@ -37,9 +37,12 @@
     "enb-diverse-js": "^0.1.0",
     "enb-modules": "^0.2.0",
     "enb-stylus": "1.1.2",
-    "faker": "^2.1.2"
+    "faker": "^2.1.2",
+    "grunt": "^0.4.5",
+    "sails-test-helper": "^0.4.1"
   },
   "scripts": {
+    "test": "npm run init && make test",
     "start": "node app.js",
     "debug": "node debug app.js",
     "init": "npm run deps && npm run make-views",
