@@ -1,6 +1,7 @@
 match(this.ctx.data)
     .def()(function() {
-    var data = this.ctx.data;
+    var data = this.ctx.data,
+        options = data.req.options;
 
     return applyCtx({
         block: 'page',
@@ -37,8 +38,8 @@ match(this.ctx.data)
             },
             {
                 block: 'controller',
-                elem: data.req.options.controller,
-                mods: {action: data.req.options.action},
+                elem: options.controller,
+                mods: {action: options.action},
                 data: data
             },
             {
