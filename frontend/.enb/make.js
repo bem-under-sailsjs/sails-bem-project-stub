@@ -40,8 +40,8 @@ var tech = {
 var fs = require('fs');
 
 // TODO: add touch.pad & touch.phone bundles
-if (!fs.existsSync('views/desktop.bundles/merged')) {
-    fs.mkdirSync('views/desktop.bundles/merged');
+if (!fs.existsSync('frontend/desktop.bundles/merged')) {
+    fs.mkdirSync('frontend/desktop.bundles/merged');
 }
 
 module.exports = function(config) {
@@ -108,12 +108,12 @@ module.exports = function(config) {
             // merged bundle (begin)
             var mergedDeps = [];
 
-            fs.readdirSync('views/desktop.bundles').map(function(bundle) {
+            fs.readdirSync('frontend/desktop.bundles').map(function(bundle) {
                 if ((/\./).test(bundle)) return;
 
                 if (bundle !== 'merged') {
 
-                    // Копируем депсы с каджой страницы внутрь merged
+                    // Копируем депсы с каждой страницы внутрь merged
                     addTechs.push([
                         tech.depsProvider,
                         {

@@ -6,7 +6,7 @@
     "ignore": [
         "views/.enb/tmp",
         "node_modules",
-        "views/libs"
+        "frontend/libs"
     ],
     "dependencies": {
         "bem-components": "^2.0.0"

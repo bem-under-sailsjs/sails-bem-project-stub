@@ -37,11 +37,11 @@ module.exports = {
         var filePathWithSize,
 
         // Get required image size
-        height = req.query.h || null,
-        width = req.query.w || null,
+            height = req.query.h || null,
+            width = req.query.w || null,
 
         // h_0000_w_0000_
-        sizeNamePart = (height ? ('h_' + height + '_') : '') + (width ? 'w_' + width + '_' : '');
+            sizeNamePart = (height ? ('h_' + height + '_') : '') + (width ? 'w_' + width + '_' : '');
 
         filePathWithSize = path.resolve(uploadDir, sizeNamePart + req.param('id'));
 
@@ -72,7 +72,6 @@ module.exports = {
             res.sendfile(filePath);
 
         } else {
-            console.log("File ", filePath,  " is not exist.");
             next();
         }
 

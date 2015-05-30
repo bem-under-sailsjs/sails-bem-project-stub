@@ -29,7 +29,7 @@ cd sails-bem-project-stub
 npm i
 bower i
 
-node_modules/.bin/enb make -d views --no-cache
+node_modules/.bin/enb make -d frontend --no-cache
 
 npm i -g nodemon
 nodemon app.js
@@ -39,7 +39,7 @@ nodemon app.js
 
 * Add layout
 ```bash
-./node_modules/bem/bin/bem create -b controller -e index -m action -v index -l views/common.blocks -T bemtree
+./node_modules/bem/bin/bem create -b controller -e index -m action -v index -l frontend/common.blocks -T bemtree
 ```
 
 ### Addons
