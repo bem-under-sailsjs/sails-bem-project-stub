@@ -18,7 +18,7 @@
     "sails": "~0.11.0",
     "sails-disk": "~0.10.0",
     "sails-generate-auth": "^0.2.0",
-    "sails-hook-bem-render": "^1.0.1",
+    "sails-hook-bem-render": "^1.1.0",
     "sails-hook-dev": "^0.2.2",
     "sails-hook-seed": "^0.1.1",
     "sails-mongo": "^0.10.4",
@@ -48,10 +48,10 @@
     "init": "npm run deps && npm run make-views",
     "deps": "npm i && bower i",
     "make-views": "npm run views-compile && npm run copy-views",
-    "views-compile": "node_modules/.bin/enb make -d views --no-cache",
+    "views-compile": "node_modules/.bin/enb make -d frontend --no-cache",
     "copy-views": "npm run copy-css && npm run copy-js",
-    "copy-css": "cp views/desktop.bundles/merged/_merged.css views/static/css/",
-    "copy-js": "cp views/desktop.bundles/merged/_merged.js views/static/js/"
+    "copy-css": "cp frontend/desktop.bundles/merged/_merged.css frontend/static/css/",
+    "copy-js": "cp frontend/desktop.bundles/merged/_merged.js frontend/static/js/"
   },
   "main": "app.js",
   "repository": {

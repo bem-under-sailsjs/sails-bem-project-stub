@@ -5,7 +5,6 @@ node_modules
 .tmp
 dump.rdb
 
-# nodejs
 lib-cov
 *.seed
 *.log
@@ -13,7 +12,6 @@ lib-cov
 *.pid
 npm-debug.log
 
-# editor
 *~
 *#
 .DS_STORE
@@ -25,12 +23,11 @@ nbproject
 # content
 uploads
 
-# BEM template engine
-views/.enb/tmp/
-views/libs/
-views/*bundles*/merged/
-views/*.bundles/*/*.*
-views/*.bundles/*/*.*.*
-!views/*bundles*/*/*.bemdecl.js
-views/static/js/_merged.js
-views/static/css/_merged.css
+frontend/.enb/tmp/
+frontend/libs/
+frontend/static/js/_merged.js
+frontend/static/css/_merged.css
+frontend/*bundles*/merged/
+frontend/*.bundles/*/*.*
+frontend/*.bundles/*/*.*.*
+!frontend/*bundles*/*/*.bemdecl.js

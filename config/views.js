@@ -13,6 +13,8 @@
 
 module.exports.views = {
 
+    dir: 'frontend/desktop.bundles/merged/'
+
     /****************************************************************************
      *                                                                           *
      * View engine (aka template language) to use for your app's *server-side*   *
