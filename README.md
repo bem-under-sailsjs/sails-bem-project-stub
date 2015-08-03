@@ -26,10 +26,7 @@ sudo git clone https://github.com/alexbaumgertner/sails-bem-project-stub.git sai
 sudo chown -R www-server:www-server sails-bem-project-stub
 cd sails-bem-project-stub
 
-npm i
-bower i
-
-node_modules/.bin/enb make -d frontend --no-cache
+npm run init
 
 npm i -g nodemon
 nodemon app.js
@@ -37,7 +34,7 @@ nodemon app.js
 
 ### Add views
 
-* Add layout
+* Add BEM layout (http://bem.info)
 ```bash
 ./node_modules/bem/bin/bem create -b controller -e index -m action -v index -l frontend/common.blocks -T bemtree
 ```
