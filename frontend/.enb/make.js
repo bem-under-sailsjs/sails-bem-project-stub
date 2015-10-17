@@ -5,17 +5,17 @@
  */
 var tech = {
     // essential
-    levels: require('enb-bem/techs/levels'),
+    levels: require('enb-bem-techs/techs/levels'),
     fileProvider: require('enb/techs/file-provider'),
     fileCopy: require('enb/techs/file-copy'),
-    bemdeclFromBemjson: require('enb-bem/techs/bemdecl-from-bemjson'),
+    bemdeclFromBemjson: require('enb-bem-techs/techs/bemjson-to-bemdecl'),
 
-    deps: require('enb-bem/techs/deps-old'),
-    depsProvider: require('enb/techs/deps-provider'),
-    depsMerge: require('enb/techs/deps-merge'),
+    deps: require('enb-bem-techs/techs/deps-old'),
+    depsProvider: require('enb-bem-techs/techs/provide-deps'),
+    depsMerge: require('enb-bem-techs/techs/merge-deps'),
 
-    files: require('enb-bem/techs/files'),
-    bemdeclFromDepsByTech: require('enb-bem/techs/bemdecl-from-deps-by-tech'),
+    files: require('enb-bem-techs/techs/files'),
+    bemdeclFromDepsByTech: require('enb-bem-techs/techs/deps-by-tech-to-bemdecl'),
     fileMerge: require('enb/techs/file-merge'),
 
     // optimization
@@ -26,7 +26,7 @@ var tech = {
     cssAutoprefixer: require('enb-autoprefixer/techs/css-autoprefixer'),
 
     // js
-    browserJs: require('enb-diverse-js/techs/browser-js'),
+    browserJs: require('enb-js/techs/browser-js'),
     prependYm: require('enb-modules/techs/prepend-modules'),
 
     // bemtree
@@ -34,7 +34,7 @@ var tech = {
 
     // bemhtml
     bemhtml: require('enb-bemxjst/techs/bemhtml'),
-    htmlFromBemjson: require('enb-bemxjst/techs/html-from-bemjson')
+    htmlFromBemjson: require('enb-bemxjst/techs/bemjson-to-html')
 };
 
 var fs = require('fs');
@@ -117,8 +117,8 @@ module.exports = function(config) {
                     addTechs.push([
                         tech.depsProvider,
                         {
-                            sourceNodePath: 'desktop.bundles/' + bundle,
-                            depsTarget: bundle + '.deps.js'
+                            node: 'desktop.bundles/' + bundle,
+                            target: bundle + '.deps.js'
                         }
                     ]);
 
@@ -129,7 +129,7 @@ module.exports = function(config) {
             // Мерджим все полученные депcы в один - merged.deps.js
             addTechs.push([
                 tech.depsMerge,
-                {depsSources: mergedDeps},
+                {sources: mergedDeps},
                 {depsTarget: 'merged.deps.js'}
             ]);
             // merged bundle (end)
